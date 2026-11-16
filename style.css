@@ -307,9 +307,21 @@ input[type="text"]:focus {
 }
 
 .card-votos-lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide perfeitamente em 2 colunas */
+    gap: 10px; /* Espaçamento equilibrado entre os itens */
+}
+
+/* Opcional: faz cada item ocupar o espaço ideal dentro da coluna */
+.card-item-voto {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden; /* Evita que textos longos estourem o box */
 }
 
 .card-item-voto {
