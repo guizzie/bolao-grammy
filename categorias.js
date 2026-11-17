@@ -1,0 +1,365 @@
+// CATEGORIAS DO 69º GRAMMY (cerimônia em 7/fev/2027) COM CAPAS DO SPOTIFY
+// img vazio ("") = sem capa: a tela mostra um ícone de nota musical no lugar
+// CATEGORIAS DO 69º GRAMMY
+
+const categorias = [
+    {
+        id: "roty",
+        nome: "Record Of The Year",
+        indicados: [
+            { nome: "Man I Need - Olivia Dean", img: "https://i.scdn.co/image/ab67616d0000b273e3d69e17dde129037a1f09e2" },
+            { nome: "Choosin' Texas - Ella Langley", img: "https://i.scdn.co/image/ab67616d0000b27390958927fbba47a62c3e63f8" },
+            { nome: "I Just Might - Bruno Mars", img: "https://i.scdn.co/image/ab67616d0000b273e7623a0a60f330ee2b24d498" },
+            { nome: "WHERE IS MY HUSBAND! - RAYE", img: "https://i.scdn.co/image/ab67616d0000b2736ac3c7938191585c53c8180d" },
+            { nome: "the cure - Olivia Rodrigo", img: "https://i.scdn.co/image/ab67616d0000b27379e480cbab8c7b86d277841a" },
+            { nome: "Berghain - ROSALÍA, Björk, Yves Tumor", img: "https://i.scdn.co/image/ab67616d0000b27308256748d3e6c3ed016cab16" },
+            { nome: "The Fate of Ophelia - Taylor Swift", img: "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902" },
+            { nome: "Dracula - Tame Impala, JENNIE", img: "https://i.scdn.co/image/ab67616d0000b2734806a1c10aa685b1b936158b" }
+        ]
+    },
+    {
+        id: "aoty",
+        nome: "Album Of The Year",
+        indicados: [
+            { nome: "Lost Weekend - Phoebe Bridgers", img: "https://i.scdn.co/image/ab67616d0000b27325a647ace83ba32770ab5d0f" },
+            { nome: "The Art of Loving - Olivia Dean", img: "https://i.scdn.co/image/ab67616d0000b2739a336bfb6d40bbd90a507417" },
+            { nome: "Dandelion - Ella Langley", img: "https://i.scdn.co/image/ab67616d0000b2738606848da949bbaddf447d87" },
+            { nome: "The Romantic - Bruno Mars", img: "https://i.scdn.co/image/ab67616d0000b2733eb8dc748f7efb1470f74395" },
+            { nome: "THIS MUSIC MAY CONTAIN HOPE. - RAYE", img: "https://i.scdn.co/image/ab67616d0000b27397c0928704e5a2bd8d4c5b90" },
+            { nome: "you seem pretty sad for a girl so in love - Olivia Rodrigo", img: "https://i.scdn.co/image/ab67616d0000b2735cf234eeb7a2edf44bf64a46" },
+            { nome: "LUX (Complete Works) - ROSALÍA", img: "https://i.scdn.co/image/ab67616d0000b27308256748d3e6c3ed016cab16" },
+            { nome: "The Life of a Showgirl - Taylor Swift", img: "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902" }
+        ]
+    },
+    {
+        id: "soty",
+        nome: "Song Of The Year",
+        indicados: [
+            { nome: "Berghain - Björk, Noah Goldstein, Jake Miller, ROSALÍA, Dylan Wiggins", img: "https://i.scdn.co/image/ab67616d0000b27308256748d3e6c3ed016cab16" },
+            { nome: "Choosin' Texas - Luke Dick, Miranda Lambert, Ella Langley, Joybeth Taylor", img: "https://i.scdn.co/image/ab67616d0000b27390958927fbba47a62c3e63f8" },
+            { nome: "the cure - Daniel Nigro, Olivia Rodrigo", img: "https://i.scdn.co/image/ab67616d0000b27379e480cbab8c7b86d277841a" },
+            { nome: "hate that i made you love me - Ariana Grande, Max Martin, Ilya", img: "https://i.scdn.co/image/ab67616d0000b273b622d42c30697e1e1414343c" },
+            { nome: "I Knew It, I Knew You - Jack Antonoff, Taylor Swift", img: "https://i.scdn.co/image/ab67616d0000b273a35a1d4983e2b4fd0094f910" },
+            { nome: "Man I Need - Olivia Dean, Tobias Jesso, Jr., Zach Nahome", img: "https://i.scdn.co/image/ab67616d0000b273e3d69e17dde129037a1f09e2" },
+            { nome: "Risk it All - Dernst Emile II, James Fauntleroy, Philip Lawrence, Bruno Mars", img: "https://i.scdn.co/image/ab67616d0000b2733eb8dc748f7efb1470f74395" },
+            { nome: "WHERE IS MY HUSBAND! - RAYE, Mike Sabath", img: "https://i.scdn.co/image/ab67616d0000b2736ac3c7938191585c53c8180d" }
+        ]
+    },
+    {
+        id: "bna",
+        nome: "Best New Artist",
+        indicados: [
+            { nome: "Angine de Poitrine", img: "https://i.scdn.co/image/ab67616d0000b2734821b77fd92093513d7634b5" },
+            { nome: "Geese", img: "https://i.scdn.co/image/ab67616d0000b27345e82ae0372a50834825c018" },
+            { nome: "Ella Langley", img: "https://i.scdn.co/image/ab67616d0000b27390958927fbba47a62c3e63f8" },
+            { nome: "Slayyyter", img: "https://i.scdn.co/image/ab67616d0000b2734c6a0c9499470002aa8ba96f" },
+            { nome: "Sienna Spiro", img: "https://i.scdn.co/image/ab67616d0000b2730901e50bfaff4351a29f462b" },
+            { nome: "Don Toliver", img: "https://i.scdn.co/image/ab67616d0000b273307323fa550564b0201b1d76" },
+            { nome: "Remi Wolf", img: "https://i.scdn.co/image/ab67616d0000b2739af0029a0cd8b1cd24e99533" },
+            { nome: "The Womack Sisters", img: "https://i.scdn.co/image/ab67616d0000b273daa96ea6d96d900f7d95f2f4" }
+        ]
+    },
+    {
+        id: "pop_solo",
+        nome: "Best Pop Solo Performance",
+        indicados: [
+            { nome: "Man I Need - Olivia Dean", img: "https://i.scdn.co/image/ab67616d0000b273e3d69e17dde129037a1f09e2" },
+            { nome: "Risk It All - Bruno Mars", img: "https://i.scdn.co/image/ab67616d0000b2733eb8dc748f7efb1470f74395" },
+            { nome: "WHERE IS MY HUSBAND! - RAYE", img: "https://i.scdn.co/image/ab67616d0000b2736ac3c7938191585c53c8180d" },
+            { nome: "the cure - Olivia Rodrigo", img: "https://i.scdn.co/image/ab67616d0000b27379e480cbab8c7b86d277841a" },
+            { nome: "Sauvignon Blanc - ROSALÍA", img: "https://i.scdn.co/image/ab67616d0000b27308256748d3e6c3ed016cab16" }
+        ]
+    },
+    {
+        id: "pop_duo",
+        nome: "Best Pop Duo/Group Performance",
+        indicados: [
+            { nome: "RUNWAY - Lady Gaga, Doechii", img: "https://i.scdn.co/image/ab67616d0000b273848b466bd71bcaa46cb20030" },
+            { nome: "Bring Your Love - Madonna, Sabrina Carpenter", img: "https://i.scdn.co/image/ab67616d0000b2732e45924aa55275c64280cada" },
+            { nome: "Click Clack Symphony - RAYE, Hans Zimmer", img: "https://i.scdn.co/image/ab67616d0000b27397c0928704e5a2bd8d4c5b90" },
+            { nome: "The Life of a Showgirl - Taylor Swift, Sabrina Carpenter", img: "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902" },
+            { nome: "Dracula - Tame Impala, JENNIE", img: "https://i.scdn.co/image/ab67616d0000b273c7c031ce9d06b131f8563676" }
+        ]
+    },
+    {
+        id: "asian_pop",
+        nome: "Best Asian Pop Music Performance",
+        indicados: [
+            { nome: "Sunset Kiss - BABYMETAL, Polyphia", img: "https://i.scdn.co/image/ab67616d0000b2734b0ed3119e27ff6e56298053" },
+            { nome: "Unang Kilig - BINI", img: "https://i.scdn.co/image/ab67616d0000b273bd2925ff9a38cdf6c8d35acf" },
+            { nome: "BANG BANG - IVE", img: "https://i.scdn.co/image/ab67616d0000b273775cb67ad6f1aa320a8cb945" },
+            { nome: "404 (New Era) - KiiiKiii", img: "https://i.scdn.co/image/ab67616d0000b2730cc65398388cbc486fa4fff7" },
+            { nome: "YES - LiSA", img: "https://i.scdn.co/image/ab67616d0000b273687509244bc2247252a4cc89" },
+            { nome: "VISA - SB19", img: "https://i.scdn.co/image/ab67616d0000b273b7f16758509aa943a33fbcf9" }
+        ]
+    },
+    {
+        id: "pop_album",
+        nome: "Best Pop Vocal Album",
+        indicados: [
+            { nome: "The Art of Loving - Olivia Dean", img: "https://i.scdn.co/image/ab67616d0000b2739a336bfb6d40bbd90a507417" },
+            { nome: "petal - Ariana Grande", img: "https://i.scdn.co/image/ab67616d0000b2738baf677ee2d8dda6cc9fcbd7" },
+            { nome: "The Romantic - Bruno Mars", img: "https://i.scdn.co/image/ab67616d0000b2733eb8dc748f7efb1470f74395" },
+            { nome: "THIS MUSIC MAY CONTAIN HOPE. - RAYE", img: "https://i.scdn.co/image/ab67616d0000b27397c0928704e5a2bd8d4c5b90" },
+            { nome: "you seem pretty sad for a girl so in love - Olivia Rodrigo", img: "https://i.scdn.co/image/ab67616d0000b2735cf234eeb7a2edf44bf64a46" }
+        ]
+    },
+    {
+        id: "dance_rec",
+        nome: "Best Dance/Electronic Recording",
+        indicados: [
+            { nome: "Lights Burn Dimmer - Fred again.., Jamie T", img: "https://i.scdn.co/image/ab67616d0000b2734018b70099d433d9c8aabb12" },
+            { nome: "I Feel So Free - Madonna", img: "https://i.scdn.co/image/ab67616d0000b2732e45924aa55275c64280cada" },
+            { nome: "CRANK - Slayyyter", img: "https://i.scdn.co/image/ab67616d0000b2734c6a0c9499470002aa8ba96f" },
+            { nome: "My Old Ways - Tame Impala", img: "https://i.scdn.co/image/ab67616d0000b273208500450dcd0fd294d7bd3b" },
+            { nome: "Melatonin - Tinashe", img: "https://i.scdn.co/image/ab67616d0000b27351a09fe2151501375959f883" },
+            { nome: "Music - underscores", img: "https://i.scdn.co/image/ab67616d0000b273cab898cdda3ee7d1e9b25646" }
+        ]
+    },
+    {
+        id: "dance_pop",
+        nome: "Best Dance Pop Recording",
+        indicados: [
+            { nome: "Blue Moon - Zara Larsson", img: "https://i.scdn.co/image/ab67616d0000b27393872dded9b6fe861ac52752" },
+            { nome: "Danceteria - Madonna", img: "https://i.scdn.co/image/ab67616d0000b2732e45924aa55275c64280cada" },
+            { nome: "Life Boat - RAYE", img: "https://i.scdn.co/image/ab67616d0000b27397c0928704e5a2bd8d4c5b90" },
+            { nome: "Dance… - Slayyyter", img: "https://i.scdn.co/image/ab67616d0000b2734c6a0c9499470002aa8ba96f" },
+            { nome: "Too Easy - Tinashe", img: "https://i.scdn.co/image/ab67616d0000b273b727131d0cc73d73e2dd42ae" }
+        ]
+    },
+    {
+        id: "dance_album",
+        nome: "Best Dance/Electronic Album",
+        indicados: [
+            { nome: "CONFESSIONS II - Madonna", img: "https://i.scdn.co/image/ab67616d0000b2732e45924aa55275c64280cada" },
+            { nome: "Sexistential - Robyn", img: "https://i.scdn.co/image/ab67616d0000b27395462e3fa8aca9db0fdd8c19" },
+            { nome: "SOMA - Skrillex", img: "https://i.scdn.co/image/ab67616d0000b273f4d40a252848a83d49e0ff1b" },
+            { nome: "WOR$T GIRL IN AMERICA - Slayyyter", img: "https://i.scdn.co/image/ab67616d0000b2734c6a0c9499470002aa8ba96f" },
+            { nome: "Deadbeat - Tame Impala", img: "https://i.scdn.co/image/ab67616d0000b273208500450dcd0fd294d7bd3b" }
+        ]
+    },
+    {
+        id: "rock_perf",
+        nome: "Best Rock Performance",
+        indicados: [
+            { nome: "Sarniezz - Angine de Poitrine", img: "https://i.scdn.co/image/ab67616d0000b2734821b77fd92093513d7634b5" },
+            { nome: "Lost Boys - Phoebe Bridgers", img: "https://i.scdn.co/image/ab67616d0000b2737d2d1eb695b8384b81bacb9d" },
+            { nome: "Trinidad - Geese", img: "https://i.scdn.co/image/ab67616d0000b27345e82ae0372a50834825c018" },
+            { nome: "What's Wrong With Me - Olivia Rodrigo, Robert Smith", img: "https://i.scdn.co/image/ab67616d0000b2735cf234eeb7a2edf44bf64a46" },
+            { nome: "In the Stars - The Rolling Stones", img: "https://i.scdn.co/image/ab67616d0000b273ce029930e121e2884a5c1d43" }
+        ]
+    },
+    {
+        id: "metal_perf",
+        nome: "Best Metal Performance",
+        indicados: [
+            { nome: "The Edge of Perfection - Anthrax", img: "https://i.scdn.co/image/ab67616d0000b2738921d23ffb8f2f9a0af874cf" },
+            { nome: "Hive Mind - Knocked Loose, Denzel Curry", img: "https://i.scdn.co/image/ab67616d0000b273b0f2d071d2ee5965c435f83b" },
+            { nome: "Your Ghost Again - Mastodon", img: "https://i.scdn.co/image/ab67616d0000b273a90be43a44bddd383672b345" },
+            { nome: "Let There Be Shred - Megadeth", img: "https://i.scdn.co/image/ab67616d0000b2739259659bd5b7332b9bfa8860" },
+            { nome: "End of You - Poppy, Amy Lee, Courtney LaPlante", img: "https://i.scdn.co/image/ab67616d0000b273460c53e36b10048efc49e76c" }
+        ]
+    },
+    {
+        id: "rock_song",
+        nome: "Best Rock Song",
+        indicados: [
+            { nome: "In the Stars - The Rolling Stones", img: "https://i.scdn.co/image/ab67616d0000b273ce029930e121e2884a5c1d43" },
+            { nome: "Lost Boys - Phoebe Bridgers", img: "https://i.scdn.co/image/ab67616d0000b2737d2d1eb695b8384b81bacb9d" },
+            { nome: "My Only Angel - Aerosmith, YUNGBLUD", img: "https://i.scdn.co/image/ab67616d0000b2735ec367beb85b11672fd133e3" },
+            { nome: "Streets of Minneapolis (Radio Mix) - Bruce Springsteen", img: "https://i.scdn.co/image/ab67616d0000b273cee37f892e4ed38510338680" },
+            { nome: "Trinidad - Geese", img: "https://i.scdn.co/image/ab67616d0000b27345e82ae0372a50834825c018" },
+            { nome: "What's Wrong With Me - Olivia Rodrigo, Robert Smith", img: "https://i.scdn.co/image/ab67616d0000b2735cf234eeb7a2edf44bf64a46" },
+            { nome: "Your Favorite Toy - Foo Fighters", img: "https://i.scdn.co/image/ab67616d0000b2735e2a81c3b6561e817b0de2b1" }
+        ]
+    },
+    {
+        id: "rock_album",
+        nome: "Best Rock Album",
+        indicados: [
+            { nome: "Vol.II - Angine de Poitrine", img: "https://i.scdn.co/image/ab67616d0000b2734821b77fd92093513d7634b5" },
+            { nome: "Your Favorite Toy - Foo Fighters", img: "https://i.scdn.co/image/ab67616d0000b2735e2a81c3b6561e817b0de2b1" },
+            { nome: "The Wow! Signal - Muse", img: "https://i.scdn.co/image/ab67616d0000b273b295bd39e098e7b68d57aacf" },
+            { nome: "Foreign Tongues - The Rolling Stones", img: "https://i.scdn.co/image/ab67616d0000b27313b9f6190eb9a01538240c62" },
+            { nome: "Frozen Charlotte - Jack White", img: "https://i.scdn.co/image/ab67616d0000b2739ac6288d467ebcf60f8fb129" }
+        ]
+    },
+    {
+        id: "alt_perf",
+        nome: "Best Alternative Music Performance",
+        indicados: [
+            { nome: "FabienK - Angine de Poitrine", img: "https://i.scdn.co/image/ab67616d0000b2734821b77fd92093513d7634b5" },
+            { nome: "Kill Me - Phoebe Bridgers", img: "https://i.scdn.co/image/ab67616d0000b27325a647ace83ba32770ab5d0f" },
+            { nome: "Au Pays du Cocaine - Geese", img: "https://i.scdn.co/image/ab67616d0000b27345e82ae0372a50834825c018" },
+            { nome: "Reliquia - ROSALÍA", img: "https://i.scdn.co/image/ab67616d0000b27308256748d3e6c3ed016cab16" },
+            { nome: "Showbiz - Hayley Williams", img: "https://i.scdn.co/image/ab67616d0000b2734f422ed700af8715b23326af" }
+        ]
+    },
+    {
+        id: "alt_album",
+        nome: "Best Alternative Music Album",
+        indicados: [
+            { nome: "I Must Be Dreaming - Alabama Shakes", img: "https://i.scdn.co/image/ab67616d0000b2735bc2a3d104d2c2cdc67fb92e" },
+            { nome: "Lost Weekend - Phoebe Bridgers", img: "https://i.scdn.co/image/ab67616d0000b27325a647ace83ba32770ab5d0f" },
+            { nome: "Music, Fashion, Film - Charli xcx", img: "https://i.scdn.co/image/ab67616d0000b273238e2ff91714a8db91b8a64d" },
+            { nome: "Getting Killed - Geese", img: "https://i.scdn.co/image/ab67616d0000b27345e82ae0372a50834825c018" },
+            { nome: "The Mountain - Gorillaz", img: "https://i.scdn.co/image/ab67616d0000b273eeb01b41f48210d032d1b6a4" },
+            { nome: "LUX (Complete Works) - ROSALÍA", img: "https://i.scdn.co/image/ab67616d0000b27308256748d3e6c3ed016cab16" }
+        ]
+    },
+    {
+        id: "rnb_solo",
+        nome: "Best R&B Solo Performance",
+        indicados: [
+            { nome: "Morning Dew (Donk) - Beyoncé", img: "https://i.scdn.co/image/ab67616d0000b27329803857f9f242ab9fdcfe40" },
+            { nome: "Out the Window - Kehlani", img: "https://i.scdn.co/image/ab67616d0000b273e1de233e335f2c8d8d1d4299" },
+            { nome: "Let Me - Victoria Monét", img: "https://i.scdn.co/image/ab67616d0000b273e3dcd2368d9e54c338a92992" },
+            { nome: "Pressha - Jill Scott", img: "https://i.scdn.co/image/ab67616d0000b2736ee8a34bf0c65f25039cc666" },
+            { nome: "What You Need - Tems", img: "https://i.scdn.co/image/ab67616d0000b2734522df9fc7103540be3e7950" }
+        ]
+    },
+    {
+        id: "rnb_collab",
+        nome: "Best R&B Collaboration or Duo/Group Performance",
+        indicados: [
+            { nome: "Fallin' - Chris Brown, Leon Thomas", img: "https://i.scdn.co/image/ab67616d0000b2734b28d4d23dc56dc3ceda4b5d" },
+            { nome: "47th Street - Lalah Hathaway, J. Ivy", img: "https://i.scdn.co/image/ab67616d0000b27365a345317324ceb05dbf2e6a" },
+            { nome: "Sweet Nuthins - Kehlani, Leon Thomas", img: "https://i.scdn.co/image/ab67616d0000b273d9233d03f5434d9dd46c9fd6" },
+            { nome: "Mess - PJ Morton, Keyon Harrold", img: "https://i.scdn.co/image/ab67616d0000b27367efe7cd135c913fc857f283" },
+            { nome: "To B Honest - Jill Scott, JID", img: "https://i.scdn.co/image/ab67616d0000b2737096302e941475f3e2649fc2" }
+        ]
+    },
+    {
+        id: "rnb_trad",
+        nome: "Best Traditional R&B Performance",
+        indicados: [
+            { nome: "I Found Myself - Durand Bernarr", img: "https://i.scdn.co/image/ab67616d0000b2738b1c1ecb106cd1a604162d90" },
+            { nome: "Can't Let Go - Lalah Hathaway", img: "https://i.scdn.co/image/ab67616d0000b27365a345317324ceb05dbf2e6a" },
+            { nome: "Beautiful People - Jill Scott", img: "https://i.scdn.co/image/ab67616d0000b2737096302e941475f3e2649fc2" },
+            { nome: "My Muse - Leon Thomas", img: "https://i.scdn.co/image/ab67616d0000b27327649e2e91bfbc524ced70b6" },
+            { nome: "If I Let You - The Womack Sisters", img: "https://i.scdn.co/image/ab67616d0000b273afa44cba895ec03a35a27778" }
+        ]
+    },
+    {
+        id: "rnb_song",
+        nome: "Best R&B Song",
+        indicados: [
+            { nome: "Let Me - Victoria Monét", img: "https://i.scdn.co/image/ab67616d0000b273e3dcd2368d9e54c338a92992" },
+            { nome: "My Muse - Leon Thomas", img: "https://i.scdn.co/image/ab67616d0000b27327649e2e91bfbc524ced70b6" },
+            { nome: "Out the Window - Kehlani", img: "https://i.scdn.co/image/ab67616d0000b273e1de233e335f2c8d8d1d4299" },
+            { nome: "Pressha - Jill Scott", img: "https://i.scdn.co/image/ab67616d0000b2736ee8a34bf0c65f25039cc666" },
+            { nome: "What You Need - Tems", img: "https://i.scdn.co/image/ab67616d0000b2734522df9fc7103540be3e7950" }
+        ]
+    },
+    {
+        id: "rnb_prog",
+        nome: "Best Progressive R&B Album",
+        indicados: [
+            { nome: "Bernarr. - Durand Bernarr", img: "https://i.scdn.co/image/ab67616d0000b273b53bd2530392aa4b540f57f7" },
+            { nome: "Waves - Moonchild", img: "https://i.scdn.co/image/ab67616d0000b27315691affcfda4558aebb8cab" },
+            { nome: "The Last Balloon - Tank and the Bangas", img: "https://i.scdn.co/image/ab67616d0000b273e77c92867ea3458bb05b4183" },
+            { nome: "Pholks - Leon Thomas", img: "https://i.scdn.co/image/ab67616d0000b273281d567d47a2cd56eb414ab9" },
+            { nome: "Distracted - Thundercat", img: "https://i.scdn.co/image/ab67616d0000b2735d6505356d39c9ec421d489b" }
+        ]
+    },
+    {
+        id: "rnb_album",
+        nome: "Best R&B Album",
+        indicados: [
+            { nome: "Brown (The Chocolate Edition) - Chris Brown", img: "https://i.scdn.co/image/ab67616d0000b273f9685817281327d5fecb244e" },
+            { nome: "When the City Sleeps - Alex Isley", img: "https://i.scdn.co/image/ab67616d0000b2732dff90fbde8068b44d376d9f" },
+            { nome: "Kehlani - Kehlani", img: "https://i.scdn.co/image/ab67616d0000b27332a01c92d55ba825969bff6e" },
+            { nome: "Saturday Night - PJ Morton", img: "https://i.scdn.co/image/ab67616d0000b27367efe7cd135c913fc857f283" },
+            { nome: "To Whom This May Concern - Jill Scott", img: "https://i.scdn.co/image/ab67616d0000b2737096302e941475f3e2649fc2" }
+        ]
+    },
+    {
+        id: "rap_perf",
+        nome: "Best Rap Performance",
+        indicados: [
+            { nome: "Good Flirts - Baby Keem, Kendrick Lamar, Momo Boyd", img: "https://i.scdn.co/image/ab67616d0000b27308a27a15cf37664f0dab6ab7" },
+            { nome: "ErrTime - Cardi B", img: "https://i.scdn.co/image/ab67616d0000b273762cb4007f96ee44852f263e" },
+            { nome: "Run It Back!! - De La Soul, Nas", img: "https://i.scdn.co/image/ab67616d0000b273539023dfaf4a520b1d01bf3c" },
+            { nome: "Let 'Em Know - T.I.", img: "https://i.scdn.co/image/ab67616d0000b273401ea2c7ac7ef87bd32c990f" },
+            { nome: "Body - Don Toliver", img: "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619" }
+        ]
+    },
+    {
+        id: "rap_melodic",
+        nome: "Best Melodic Rap Performance",
+        indicados: [
+            { nome: "This Woman - Busta Rhymes, J Dilla, D'Angelo", img: "https://i.scdn.co/image/ab67616d0000b2730ec6cc6c2976bb601c8b2e4d" },
+            { nome: "Safe - Cardi B, Kehlani", img: "https://i.scdn.co/image/ab67616d0000b2734449c12628ef639dd6500c4a" },
+            { nome: "Girl, Get Up - Doechii, SZA", img: "https://i.scdn.co/image/ab67616d0000b2738e7dc1d5e276c92b8ce551b6" },
+            { nome: "E85 - Don Toliver", img: "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619" },
+            { nome: "Watching Us - Wale, Leon Thomas", img: "https://i.scdn.co/image/ab67616d0000b273250eec2ba848b557f08caf73" }
+        ]
+    },
+    {
+        id: "rap_song",
+        nome: "Best Rap Song",
+        indicados: [
+            { nome: "E85 - Don Toliver", img: "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619" },
+            { nome: "ErrTime - Cardi B", img: "https://i.scdn.co/image/ab67616d0000b273762cb4007f96ee44852f263e" },
+            { nome: "Girl, Get Up - Doechii, SZA", img: "https://i.scdn.co/image/ab67616d0000b2738e7dc1d5e276c92b8ce551b6" },
+            { nome: "Let 'Em Know - T.I.", img: "https://i.scdn.co/image/ab67616d0000b273401ea2c7ac7ef87bd32c990f" },
+            { nome: "Spend Dat - Yung Miami", img: "" }
+        ]
+    },
+    {
+        id: "rap_album",
+        nome: "Best Rap Album",
+        indicados: [
+            { nome: "DILLAGENCE II - Busta Rhymes", img: "https://i.scdn.co/image/ab67616d0000b273d699626da6baf5964debd01f" },
+            { nome: "AM I THE DRAMA? - Cardi B", img: "https://i.scdn.co/image/ab67616d0000b273967b09b0309b97afc0b6ee1d" },
+            { nome: "God Gotta Afro & Gold Hoops - Rapsody", img: "https://i.scdn.co/image/ab67616d0000b273a14e643189ec72ad53632618" },
+            { nome: "OCTANE - Don Toliver", img: "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619" },
+            { nome: "everything is a lot. - Wale", img: "https://i.scdn.co/image/ab67616d0000b273e0888b11575de46f86c394fe" },
+            { nome: "BULLY - DELUXE - Kanye West", img: "https://i.scdn.co/image/ab67616d0000b273c5b4082a6636bb067532b484" }
+        ]
+    },
+    {
+        id: "spoken_word",
+        nome: "Best Spoken Word Poetry Album",
+        indicados: [
+            { nome: "Black Shaman Strikes Back - Marc Marcel", img: "https://i.scdn.co/image/ab67616d0000b273c2ee1949a102d64068615d1f" },
+            { nome: "The Color of Rain - Aja Monet", img: "https://i.scdn.co/image/ab67616d0000b2732e3c87fb12f6627713cab7da" },
+            { nome: "A Hero and a Villain - Mad Skillz", img: "https://i.scdn.co/image/ab67616d0000b2736e3a806406bb5ff313d570d3" },
+            { nome: "How Love Grows - JWalt", img: "https://i.scdn.co/image/ab67616d0000b27383710950460c5c3915b82bff" },
+            { nome: "Leap Life - Saul Williams", img: "https://i.scdn.co/image/ab67616d0000b273422cf3767b06041a7c279164" }
+        ]
+    },
+    {
+        id: "global_album",
+        nome: "Best Global Music Album",
+        indicados: [
+            { nome: "EQUILIBRIVM - Anitta", img: "https://i.scdn.co/image/ab67616d0000b273fc561bc173dc5cf4a08e0ab7" },
+            { nome: "Oriadé - Davido", img: "https://i.scdn.co/image/ab67616d0000b2730e2b0b3bdb38eeddcf7481fe" },
+            { nome: "Hope!! - Angélique Kidjo", img: "https://i.scdn.co/image/ab67616d0000b273faf5a814dab856027e848d9c" },
+            { nome: "Starrgirl - Ayra Starr", img: "https://i.scdn.co/image/ab67616d0000b2734457e5b19771c406c6edad32" },
+            { nome: "Love Is a Kingdom - Tems", img: "https://i.scdn.co/image/ab67616d0000b2734522df9fc7103540be3e7950" }
+        ]
+    },
+    {
+        id: "visual_song",
+        nome: "Best Song Written For Visual Media",
+        indicados: [
+            { nome: "House (Wuthering Heights) - Charli xcx, John Cale", img: "https://i.scdn.co/image/ab67616d0000b2735048960108f204f627b294b4" },
+            { nome: "I Knew It, I Knew You (Toy Story 5) - Taylor Swift", img: "https://i.scdn.co/image/ab67616d0000b273a35a1d4983e2b4fd0094f910" },
+            { nome: "Need Someone (The Pitt) - Andrew Bird", img: "https://i.scdn.co/image/ab67616d0000b27389abecfa010e5bbc825d739f" },
+            { nome: "No Place Like Home (Wicked: For Good) - Cynthia Erivo", img: "https://i.scdn.co/image/ab67616d0000b2733a81e76442b1aa620895a211" },
+            { nome: "Runway (The Devil Wears Prada 2) - Lady Gaga, Doechii", img: "https://i.scdn.co/image/ab67616d0000b273848b466bd71bcaa46cb20030" }
+        ]
+    },
+    {
+        id: "music_video",
+        nome: "Best Music Video",
+        indicados: [
+            { nome: "Lost Boys - Phoebe Bridgers", img: "https://i.scdn.co/image/ab67616d0000b2737d2d1eb695b8384b81bacb9d" },
+            { nome: "Storm - Gener8ion, Yung Lean", img: "https://i.scdn.co/image/ab67616d0000b273f5a3e8908f546883d245acc8" },
+            { nome: "Hate That I Made You Love Me - Ariana Grande", img: "https://i.scdn.co/image/ab67616d0000b273b622d42c30697e1e1414343c" },
+            { nome: "Click Clack Symphony - RAYE, Hans Zimmer", img: "https://i.scdn.co/image/ab67616d0000b27397c0928704e5a2bd8d4c5b90" },
+            { nome: "Berghain - ROSALÍA, Björk, Yves Tumor", img: "https://i.scdn.co/image/ab67616d0000b27308256748d3e6c3ed016cab16" }
+        ]
+    }
+];
