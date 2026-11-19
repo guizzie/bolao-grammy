@@ -404,30 +404,61 @@ formBolao.addEventListener("submit", async (e) => {
     }
 });
 
-// Botão para baixar o card em imagem PNG
-btnBaixar.addEventListener("click", () => {
-    const cardElement = document.getElementById("card-template");
-    
-    cardElement.classList.add("exportando");
+// Converte URLs externas (Spotify) para DataURL para evitar bloqueio de CORS no html-to-image
+async function prepararImagensParaExportacao(container) {
+    const imgs = [...container.querySelectorAll("img")].filter(img => img.src && !img.src.startsWith("data:"));
+    const originais = [];
 
-    htmlToImage.toPng(cardElement, {
-        quality: 0.95,
-        pixelRatio: 2,
-        cacheBust: true
-    })
-    .then((dataUrl) => {
-        const link = document.createElement('a');
-        link.download = 'bolao-grammy-apostas.png';
+    await Promise.all(imgs.map(async (img) => {
+        try {
+            const resp = await fetch(img.src, { mode: "cors" });
+            const blob = await resp.blob();
+            const dataUrl = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.readAsDataURL(blob);
+            });
+            originais.push({ img, src: img.src });
+            img.src = dataUrl;
+        } catch (err) {
+            console.warn("Capa ignorada na exportação:", img.src);
+        }
+    }));
+
+    return () => originais.forEach(({ img, src }) => { img.src = src; });
+}
+
+// Botão para baixar o card em imagem PNG
+btnBaixar.addEventListener("click", async () => {
+    const cardElement = document.getElementById("card-template");
+    btnBaixar.disabled = true;
+    btnBaixar.textContent = "Gerando imagem...";
+
+    cardElement.classList.add("exportando");
+    const restaurarImagens = await prepararImagensParaExportacao(cardElement);
+
+    try {
+        const dataUrl = await htmlToImage.toPng(cardElement, {
+            quality: 0.95,
+            pixelRatio: 2,
+            backgroundColor: "#000000"
+        });
+
+        const link = document.createElement("a");
+        link.download = "bolao-grammy-apostas.png";
         link.href = dataUrl;
+        document.body.appendChild(link);
         link.click();
-    })
-    .catch((error) => {
+        link.remove();
+    } catch (error) {
         console.error("Erro ao gerar imagem:", error);
-        alert("Não foi possível gerar a imagem.");
-    })
-    .finally(() => {
+        alert("Não foi possível gerar a imagem: " + (error.message || error));
+    } finally {
+        restaurarImagens();
         cardElement.classList.remove("exportando");
-    });
+        btnBaixar.disabled = false;
+        btnBaixar.textContent = "Baixar meu Card (PNG)";
+    }
 });
 
 // Botão para voltar
